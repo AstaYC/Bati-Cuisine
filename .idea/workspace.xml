@@ -5,12 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26a5cb1-f9c5-4f53-a56d-d47197766a6e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/MaterialDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ComponentDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/MaterialDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bati-Cuisine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Bati-Cuisine.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/LaborModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/LaborModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,16 +45,27 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Youcode/Downloads/postgresql-42.7.4.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\java-project\Bati-Cuisine" />
+      <recent name="C:\java-project\Bati-Cuisine\.idea" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -55,6 +84,7 @@
       <updated>1726593524914</updated>
       <workItem from="1726593525903" duration="1000" />
       <workItem from="1726652651913" duration="1591000" />
+      <workItem from="1726725313209" duration="18952000" />
     </task>
     <servers />
   </component>

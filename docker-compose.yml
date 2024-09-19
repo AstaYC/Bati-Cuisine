@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: AstaYc
       POSTGRES_PASSWORD: urPassword
-      POSTGRES_DB:
+      POSTGRES_DB: Bati-Cuisine
     ports:
       - "5432:5432"
     volumes:

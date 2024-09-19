@@ -1,37 +1,30 @@
 package com.batiCuisine.Models;
 
-public class MaterialModel {
-    private int id;
+import java.awt.*;
+import com.batiCuisine.Models.ComponentModel;
+
+public class MaterialModel extends ComponentModel {
+    private int componentId ;
     private double unitCost;
-    private double quantity;
+    private double quality;
     private double transportCost;
     private double qualityCoefficient;
-    private int componentId;
 
-    public MaterialModel(int id, double unitCost, double quantity, double transportCost, double qualityCoefficient, int componentId) {
-        this.id = id;
+    public MaterialModel(int id, String name, double taxRate, String componentType, int projectId, int componentId , double unitCost, double quality, double transportCost, double qualityCoefficient) {
+        super(id, name, taxRate, componentType, projectId);
+        this.componentId = componentId;
         this.unitCost = unitCost;
-        this.quantity = quantity;
+        this.quality = quality;
         this.transportCost = transportCost;
         this.qualityCoefficient = qualityCoefficient;
+    }
+
+    public int getComponentId() {
+        return componentId;
+    }
+
+    public void setComponentId(int componentId) {
         this.componentId = componentId;
-    }
-
-    public MaterialModel(double unitCost, double quantity, double transportCost, double qualityCoefficient, int componentId) {
-        this.unitCost = unitCost;
-        this.quantity = quantity;
-        this.transportCost = transportCost;
-        this.qualityCoefficient = qualityCoefficient;
-        this.componentId = componentId;
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public double getUnitCost() {
@@ -42,12 +35,12 @@ public class MaterialModel {
         this.unitCost = unitCost;
     }
 
-    public double getQuantity() {
-        return quantity;
+    public double getQuality() {
+        return quality;
     }
 
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
+    public void setQuality(double quality) {
+        this.quality = quality;
     }
 
     public double getTransportCost() {
@@ -64,13 +57,5 @@ public class MaterialModel {
 
     public void setQualityCoefficient(double qualityCoefficient) {
         this.qualityCoefficient = qualityCoefficient;
-    }
-
-    public int getComponentId() {
-        return componentId;
-    }
-
-    public void setComponentId(int componentId) {
-        this.componentId = componentId;
     }
 }

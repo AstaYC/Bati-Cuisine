@@ -1,36 +1,27 @@
-package com.batiCuisine.Models;
+package com.batiCuisine.Models;;
+import com.batiCuisine.Models.ComponentModel;
 
-public class LaborModel {
-    private int id;
+public class LaborModel extends ComponentModel{
+    private int componentId;
     private double hourlyRate;
     private double hoursWorked;
     private double workerProductivity;
-    private int componentId;
 
-    public LaborModel(int id, double hourlyRate, double hoursWorked, double workerProductivity, int componentId) {
-        this.id = id;
+    public LaborModel(int id, String name, double taxRate, String componentType, int projectId, int componentId , double hourlyRate, double hoursWorked, double workerProductivity) {
+        super(id, name, taxRate, componentType , projectId);
         this.hourlyRate = hourlyRate;
         this.hoursWorked = hoursWorked;
         this.workerProductivity = workerProductivity;
         this.componentId = componentId;
     }
 
-    // Constructor without id (for creating new labor records)
-    public LaborModel(double hourlyRate, double hoursWorked, double workerProductivity, int componentId) {
-        this.hourlyRate = hourlyRate;
-        this.hoursWorked = hoursWorked;
-        this.workerProductivity = workerProductivity;
+
+    public int componentId() {
+        return componentId;
+    }
+
+    public void componentId(int componentId) {
         this.componentId = componentId;
-    }
-
-    // Getters and Setters
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public double getHourlyRate() {
@@ -57,11 +48,4 @@ public class LaborModel {
         this.workerProductivity = workerProductivity;
     }
 
-    public int getComponentId() {
-        return componentId;
-    }
-
-    public void setComponentId(int componentId) {
-        this.componentId = componentId;
-    }
 }
