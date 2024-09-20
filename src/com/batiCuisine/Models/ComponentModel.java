@@ -7,19 +7,18 @@ public class ComponentModel {
     private String componentType;
     private int projectId;
 
-    public ComponentModel(int id, String name, double taxRate, String componentType, int projectId) {
+    public ComponentModel(int id, String name, String componentType, int projectId) {
         this.id = id;
         this.name = name;
-        this.taxRate = taxRate;
         this.componentType = componentType;
         this.projectId = projectId;
     }
 
-    public ComponentModel(String name, double taxRate, String componentType, int projectId) {
+    public ComponentModel(String name) {
         this.name = name;
-        this.taxRate = taxRate;
-        this.componentType = componentType;
-        this.projectId = projectId;
+    }
+
+    public ComponentModel() {
     }
 
 

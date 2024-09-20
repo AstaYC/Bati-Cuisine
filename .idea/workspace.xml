@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26a5cb1-f9c5-4f53-a56d-d47197766a6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/LaborDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/LaborDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/MaterialController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/CustomerDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/CustomerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/MaterialDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/MaterialDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/MaterialDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/MaterialDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/ComponentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/ComponentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/ProjectModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -34,29 +43,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Youcode/Downloads/postgresql-42.7.4.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Youcode/Downloads/postgresql-42.7.4.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\java-project\Bati-Cuisine" />
       <recent name="C:\java-project\Bati-Cuisine\.idea" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.batiCuisine.MainClass.Main" />
+      <module name="Bati-Cuisine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.batiCuisine.MainClass.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -76,7 +105,8 @@
       <updated>1726593524914</updated>
       <workItem from="1726593525903" duration="1000" />
       <workItem from="1726652651913" duration="1591000" />
-      <workItem from="1726725313209" duration="20212000" />
+      <workItem from="1726725313209" duration="27162000" />
+      <workItem from="1726822027079" duration="8243000" />
     </task>
     <servers />
   </component>

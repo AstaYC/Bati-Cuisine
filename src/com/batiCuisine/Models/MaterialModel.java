@@ -1,23 +1,19 @@
 package com.batiCuisine.Models;
 
-import java.awt.*;
-import com.batiCuisine.Models.ComponentModel;
-
 public class MaterialModel extends ComponentModel {
     private int componentId ;
     private double unitCost;
-    private double quality;
+    private double quantity;
     private double transportCost;
     private double qualityCoefficient;
 
-    public MaterialModel(int id, String name, double taxRate, String componentType, int projectId, int componentId , double unitCost, double quality, double transportCost, double qualityCoefficient) {
-        super(id, name, taxRate, componentType, projectId);
-        this.componentId = componentId;
+    public MaterialModel(double unitCost, double quantity, double transportCost, double qualityCoefficient) {
         this.unitCost = unitCost;
-        this.quality = quality;
+        this.quantity = quantity;
         this.transportCost = transportCost;
         this.qualityCoefficient = qualityCoefficient;
     }
+
 
     public int getComponentId() {
         return componentId;
@@ -35,12 +31,12 @@ public class MaterialModel extends ComponentModel {
         this.unitCost = unitCost;
     }
 
-    public double getQuality() {
-        return quality;
+    public double getQuantity() {
+        return quantity;
     }
 
-    public void setQuality(double quality) {
-        this.quality = quality;
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
     }
 
     public double getTransportCost() {

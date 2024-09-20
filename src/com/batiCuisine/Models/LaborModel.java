@@ -7,12 +7,10 @@ public class LaborModel extends ComponentModel{
     private double hoursWorked;
     private double workerProductivity;
 
-    public LaborModel(int id, String name, double taxRate, String componentType, int projectId, int componentId , double hourlyRate, double hoursWorked, double workerProductivity) {
-        super(id, name, taxRate, componentType , projectId);
+    public LaborModel( double hourlyRate, double hoursWorked, double workerProductivity) {
         this.hourlyRate = hourlyRate;
         this.hoursWorked = hoursWorked;
         this.workerProductivity = workerProductivity;
-        this.componentId = componentId;
     }
 
 

@@ -3,27 +3,29 @@ package com.batiCuisine.Models;
 public class ProjectModel {
     private int id;
     private String name;
+    private double surfacearea;
     private double profitmerge;
     private double totalcost;
     private String projectstatus;
     private int customer_id;
 
-    public ProjectModel(int id, String name, double profitmerge, double totalcost, String projectstatus , int customer_id) {
+    public ProjectModel(int id, String name, double surfacearea , double profitmerge, double totalcost, String projectstatus , int customer_id) {
         this.id = id;
         this.name = name;
+        this.surfacearea = surfacearea;
         this.profitmerge = profitmerge;
         this.totalcost = totalcost;
         this.projectstatus = projectstatus;
         this.customer_id = customer_id;
     }
 
-    public ProjectModel( String name, double profitmerge, double totalcost, String projectstatus , int customer_id) {
+    public ProjectModel( String name, double surfacearea, int customer_id) {
         this.name = name;
-        this.profitmerge = profitmerge;
-        this.totalcost = totalcost;
-        this.projectstatus = projectstatus;
+        this.surfacearea = surfacearea;
         this.customer_id = customer_id;
     }
+
+    public ProjectModel(){};
 
     public int getId() {
         return id;
@@ -39,6 +41,14 @@ public class ProjectModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getSurfacearea() {
+        return surfacearea;
+    }
+
+    public void setSurfacearea(double surfacearea) {
+        this.surfacearea = surfacearea;
     }
 
     public double getProfitmerge() {

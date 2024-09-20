@@ -1,4 +1,77 @@
 package com.batiCuisine.Controllers;
 
+import com.batiCuisine.DAO.Impls.CustomerDAOImpl;
+import com.batiCuisine.DAO.Impls.LaborDAOImpl;
+import com.batiCuisine.DAO.Impls.MaterialDAOImpl;
+import com.batiCuisine.DAO.Impls.ProjectDAOImpl;
+import com.batiCuisine.DAO.Interfaces.ProjectDAO;
+import com.batiCuisine.Models.CustomerModel;
+import com.batiCuisine.Models.ProjectModel;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
 public class ProjectController {
+    private final CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+    private final MaterialDAOImpl materialDAO = new MaterialDAOImpl();
+    private final LaborDAOImpl laborDAO = new LaborDAOImpl();
+    private final ProjectDAOImpl projectDAO = new ProjectDAOImpl();
+    private final MaterialController materialController = new MaterialController();
+    private final LaborController laborController = new LaborController();
+
+    public void createProject(Scanner scanner) throws SQLException {
+        System.out.println("-- Search a Customer ? --");
+        System.out.println("Do you want to search for an existing customer or add a new one?");
+        System.out.println("1.Search a Customer");
+        System.out.println("2.ADD a New Customer");
+
+        int choise = scanner.nextInt();
+        scanner.nextLine();
+
+        if(choise == 1){
+            System.out.println("Enter the email of the customer: ");
+            String email = scanner.nextLine();
+            CustomerModel customer = customerDAO.getCustomerByEmail(email);
+            int CustomerId;
+            if(customer != null){
+                CustomerId = customer.getId();
+                System.out.println("Customer found!");
+                System.out.println("Name: " + customer.getName());
+                System.out.println("Address: " + customer.getAddress());
+                System.out.println("Phone Number: " + customer.getPhone());
+            }else{
+                System.out.println("Customer not found!");
+                return;
+            }
+            System.out.println("Would you like to continue with this client? (y/n)");
+            String answer = scanner.nextLine();
+
+            if(answer.equalsIgnoreCase("y")){
+                System.out.println("--- Creation of a New Project   ---");
+                System.out.println("Enter the project name");
+                String projectName = scanner.nextLine();
+                System.out.println("Enter the kitchen surface area (with m²)" );
+                double kitchenSurfaceArea = scanner.nextDouble();
+
+                ProjectModel project = new ProjectModel(projectName , kitchenSurfaceArea , CustomerId);
+
+                int projectID = projectDAO.insertProject(project);
+
+                // Add material //
+                materialController.CreationMaterial(scanner , projectID);
+                //-------------------------------//
+
+                // Add Labor //
+                laborController.CreationLabor(scanner , projectID);
+                // ----------------------------- //
+
+            }
+
+
+
+        }
+
+
+
+    }
 }
