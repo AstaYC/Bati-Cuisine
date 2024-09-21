@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26a5cb1-f9c5-4f53-a56d-d47197766a6e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/QuoteDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/QuoteDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/SaveQuoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/SaveQuoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/QuoteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/QuoteModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
@@ -102,7 +107,7 @@
       <workItem from="1726652651913" duration="1591000" />
       <workItem from="1726725313209" duration="27162000" />
       <workItem from="1726822027079" duration="8243000" />
-      <workItem from="1726844153801" duration="26399000" />
+      <workItem from="1726844153801" duration="34372000" />
     </task>
     <servers />
   </component>
