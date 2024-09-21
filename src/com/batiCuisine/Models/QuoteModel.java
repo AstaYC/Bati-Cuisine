@@ -1,16 +1,17 @@
 package com.batiCuisine.Models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class QuoteModel {
     private int id;
     private double estimatedAmount;
-    private Date issueDate;
-    private Date validityDate;
+    private LocalDate issueDate;
+    private LocalDate validityDate;
     private boolean isAccepted;
     private int projectId;
 
-    public QuoteModel(int id, double estimatedAmount, Date issueDate, Date validityDate, boolean isAccepted, int projectId) {
+    public QuoteModel(int id, double estimatedAmount, LocalDate issueDate, LocalDate validityDate, boolean isAccepted, int projectId) {
         this.id = id;
         this.estimatedAmount = estimatedAmount;
         this.issueDate = issueDate;
@@ -20,11 +21,10 @@ public class QuoteModel {
     }
 
 
-    public QuoteModel(double estimatedAmount, Date issueDate, Date validityDate, boolean isAccepted, int projectId) {
+    public QuoteModel(double estimatedAmount, LocalDate issueDate, LocalDate validityDate , int projectId) {
         this.estimatedAmount = estimatedAmount;
         this.issueDate = issueDate;
         this.validityDate = validityDate;
-        this.isAccepted = isAccepted;
         this.projectId = projectId;
     }
 
@@ -45,19 +45,19 @@ public class QuoteModel {
         this.estimatedAmount = estimatedAmount;
     }
 
-    public Date getIssueDate() {
+    public LocalDate getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(Date issueDate) {
+    public void setIssueDate(LocalDate issueDate) {
         this.issueDate = issueDate;
     }
 
-    public Date getValidityDate() {
+    public LocalDate getValidityDate() {
         return validityDate;
     }
 
-    public void setValidityDate(Date validityDate) {
+    public void setValidityDate(LocalDate validityDate) {
         this.validityDate = validityDate;
     }
 

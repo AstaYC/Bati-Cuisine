@@ -18,12 +18,11 @@ public class CustomerModel {
         this.isProfessional = isProfessional;
     }
 
-    public CustomerModel(String name, String email, String address, String phone, boolean isProfessional) {
+    public CustomerModel(String name, String email, String address, String phone) {
         this.name = name;
         this.email = email;
         this.address = address;
         this.phone = phone;
-        this.isProfessional = isProfessional;
     }
 
 

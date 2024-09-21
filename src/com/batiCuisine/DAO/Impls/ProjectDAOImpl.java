@@ -76,6 +76,7 @@ public class ProjectDAOImpl implements ProjectDAO {
         return project;
     }
 
+    @Override
     public void setCostMarginProject(int id , double profitmerge , double totalcost) throws SQLException {
         String query = "Update project set profitmerge = ? , totalcost = ? where id = ?";
         try (Connection connection = DatabaseConnectionManager.getConnection();

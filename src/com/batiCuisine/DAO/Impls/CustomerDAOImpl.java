@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
-    public void insertCustomer(CustomerModel customer) throws SQLException {
-        String query = "INSERT INTO customer(name,email,address,phone,isProfessional) VALUES(?,?,?,?,?)";
+    public int insertCustomer(CustomerModel customer) throws SQLException {
+        String query = "INSERT INTO customer(name,email,address,phone) VALUES(?,?,?,?)";
         try (Connection connection = DatabaseConnectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
@@ -20,8 +20,15 @@ public class CustomerDAOImpl implements CustomerDAO {
             preparedStatement.setString(2, customer.getEmail());
             preparedStatement.setString(3, customer.getAddress());
             preparedStatement.setString(4, customer.getPhone());
-            preparedStatement.setBoolean(5, customer.isProfessional());
             preparedStatement.executeUpdate();
+
+            try (ResultSet getNewInsertCustomerId = preparedStatement.getGeneratedKeys()) {
+                if (getNewInsertCustomerId.next()) {
+                    return getNewInsertCustomerId.getInt(1);
+                }else{
+                    throw new SQLException("inserting the customer failed");
+                }
+            }
         }
     }
 
