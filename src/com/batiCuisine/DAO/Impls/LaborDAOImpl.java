@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LaborDAOImpl implements LaborDAO {
     @Override
@@ -41,5 +43,29 @@ public class LaborDAOImpl implements LaborDAO {
             preparedStatement.setDouble(4, labor.getWorkerProductivity());
             preparedStatement.executeUpdate();
         }
+    }
+
+    public List<LaborModel> getAllLaborForProject(int projectId) throws SQLException {
+        String query = "SELECT * , component.name as name FROM labor " +
+                "inner join component on labor.id = component.id " +
+                "where component.projectId = ? " +
+                "and where component.componenttype = 'Labor' ";
+
+        List<LaborModel> labors = new ArrayList<>();
+        try(Connection connection = DatabaseConnectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, projectId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                labors.add(new LaborModel(
+                        resultSet.getString("name"),
+                        resultSet.getDouble("hourlyrate"),
+                        resultSet.getDouble("hoursworked"),
+                        resultSet.getDouble("workerproductivity")
+                ));
+            }
+        }
+
+        return labors;
     }
 }

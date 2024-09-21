@@ -8,6 +8,7 @@ public class ProjectModel {
     private double totalcost;
     private String projectstatus;
     private int customer_id;
+    private String customer_name;
 
     public ProjectModel(int id, String name, double surfacearea , double profitmerge, double totalcost, String projectstatus , int customer_id) {
         this.id = id;
@@ -81,6 +82,14 @@ public class ProjectModel {
 
     public void setCustomer_id(int customer_id) {
         this.customer_id = customer_id;
+    }
+
+    public String getCustomer_name() {
+        return customer_name ;
+    }
+
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
     }
 
 }

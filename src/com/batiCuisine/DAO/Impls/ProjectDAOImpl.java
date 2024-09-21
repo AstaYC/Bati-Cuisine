@@ -27,9 +27,7 @@ public class ProjectDAOImpl implements ProjectDAO {
                      throw new SQLException("inserting the project failed");
                 }
             }
-
         }
-
     }
 
     public void updateProject(ProjectModel project) {
@@ -51,4 +49,41 @@ public class ProjectDAOImpl implements ProjectDAO {
         }
     }
 
+
+    public ProjectModel getLastProject() throws SQLException {
+        String query = "SELECT *, customer.name AS customer_name FROM projects " +
+                "JOIN customer ON projects.customer_id = customer.id " +
+                "ORDER BY projects.id DESC " +
+                "LIMIT 1";
+
+        ProjectModel project = null ;
+        try (Connection connection = DatabaseConnectionManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                 project = new ProjectModel(
+                         resultSet.getInt("id"),
+                         resultSet.getString("name"),
+                         resultSet.getDouble("surfacearea"),
+                         resultSet.getDouble("profitmerge"),
+                         resultSet.getDouble("totalcost"),
+                         resultSet.getString("projectstatus"),
+                         resultSet.getInt("customer_id")
+                 );
+                 project.setCustomer_name(resultSet.getString("customer_name"));
+            }
+        }
+        return project;
+    }
+
+    public void setCostMarginProject(int id , double profitmerge , double totalcost) throws SQLException {
+        String query = "Update project set profitmerge = ? , totalcost = ? where id = ?";
+        try (Connection connection = DatabaseConnectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setDouble(1, profitmerge);
+            preparedStatement.setDouble(2, totalcost);
+            preparedStatement.setInt(3, id);
+            preparedStatement.executeUpdate();
+        }
+    }
 }

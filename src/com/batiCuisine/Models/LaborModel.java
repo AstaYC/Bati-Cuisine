@@ -13,6 +13,13 @@ public class LaborModel extends ComponentModel{
         this.workerProductivity = workerProductivity;
     }
 
+    public LaborModel(String name , double hourlyRate, double hoursWorked, double workerProductivity) {
+        super(name);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+        this.workerProductivity = workerProductivity;
+    }
+
 
     public int componentId() {
         return componentId;

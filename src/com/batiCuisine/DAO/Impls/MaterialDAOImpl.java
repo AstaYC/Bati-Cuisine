@@ -10,6 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MaterialDAOImpl implements MaterialDAO {
     @Override
     public void insertMaterial(MaterialModel material , ComponentModel component ) throws SQLException {
@@ -42,6 +45,32 @@ public class MaterialDAOImpl implements MaterialDAO {
              preparedStatement.setDouble(5, material.getQualityCoefficient());
              preparedStatement.executeUpdate();
         }
+    }
+
+    public List<MaterialModel> getAllMaterialForProject(int projectId) throws SQLException {
+        String query = "SELECT *, component.name as name FROM material " +
+                "INNER JOIN component ON component.id = material.id " +
+                "WHERE component.projectId = ? " +
+                "AND component.componenttype = 'Material'";
+
+        List<MaterialModel> materialList = new ArrayList<>();
+        try (Connection connection = DatabaseConnectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, projectId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()) {
+                materialList.add(new MaterialModel(
+                        resultSet.getString("name"),
+                        resultSet.getDouble("unitcost"),
+                        resultSet.getDouble("quantity"),
+                        resultSet.getDouble("transportcost"),
+                        resultSet.getDouble("qualitycoefficient")
+                ));
+            }
+        }
+
+        return materialList;
     }
 
 }

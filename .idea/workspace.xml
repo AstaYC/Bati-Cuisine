@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26a5cb1-f9c5-4f53-a56d-d47197766a6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/MaterialController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/CustomerDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ComponentDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/CalculCoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/CalculCoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/LaborDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/LaborDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/MaterialDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/MaterialDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ComponentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ComponentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/LaborDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/LaborDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/MaterialDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/MaterialDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/ComponentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/ComponentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/LaborModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/LaborModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/ProjectModel.java" afterDir="false" />
     </list>
@@ -34,6 +35,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -43,24 +48,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Youcode/Downloads/postgresql-42.7.4.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Youcode/Downloads/postgresql-42.7.4.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\java-project\Bati-Cuisine" />
@@ -107,6 +114,7 @@
       <workItem from="1726652651913" duration="1591000" />
       <workItem from="1726725313209" duration="27162000" />
       <workItem from="1726822027079" duration="8243000" />
+      <workItem from="1726844153801" duration="25658000" />
     </task>
     <servers />
   </component>

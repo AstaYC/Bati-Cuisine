@@ -7,7 +7,16 @@ public class MaterialModel extends ComponentModel {
     private double transportCost;
     private double qualityCoefficient;
 
+
     public MaterialModel(double unitCost, double quantity, double transportCost, double qualityCoefficient) {
+        this.unitCost = unitCost;
+        this.quantity = quantity;
+        this.transportCost = transportCost;
+        this.qualityCoefficient = qualityCoefficient;
+    }
+
+    public MaterialModel(String name , double unitCost, double quantity, double transportCost, double qualityCoefficient) {
+        super(name);
         this.unitCost = unitCost;
         this.quantity = quantity;
         this.transportCost = transportCost;

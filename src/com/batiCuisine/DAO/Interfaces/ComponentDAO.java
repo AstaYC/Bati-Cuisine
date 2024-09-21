@@ -6,5 +6,6 @@ import java.awt.*;
 import java.sql.SQLException;
 
 public interface ComponentDAO {
-    void insertComponent (ComponentModel component) throws SQLException;
+    int getTheLastComponentID() throws SQLException;
+    void setVatComponent(int id , double vateRate) throws SQLException;
 }

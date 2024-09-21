@@ -26,7 +26,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public CustomerModel getCustomerByEmail(String email) throws SQLException {
-        String query = "SELECT *FROM customer WHERE email = ?";
+        String query = "SELECT * FROM customer WHERE email = ?";
         CustomerModel customer = null;
         try (Connection connection = DatabaseConnectionManager.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
