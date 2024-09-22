@@ -100,6 +100,8 @@ public class ProjectController {
         saveQuoteController.saveQuote(scanner);
         // ---------------------------- //
 
+        System.out.println("--- End of project ---");
+
     }
 }
 
