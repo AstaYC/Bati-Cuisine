@@ -4,17 +4,14 @@ import com.batiCuisine.DAO.Interfaces.CustomerDAO;
 import com.batiCuisine.Models.CustomerModel;
 import com.batiCuisine.Utils.DatabaseConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public int insertCustomer(CustomerModel customer) throws SQLException {
         String query = "INSERT INTO customer(name,email,address,phone) VALUES(?,?,?,?)";
         try (Connection connection = DatabaseConnectionManager.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(query , Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, customer.getName());
             preparedStatement.setString(2, customer.getEmail());
@@ -26,7 +23,7 @@ public class CustomerDAOImpl implements CustomerDAO {
                 if (getNewInsertCustomerId.next()) {
                     return getNewInsertCustomerId.getInt(1);
                 }else{
-                    throw new SQLException("inserting the customer failed");
+                    throw new SQLException("Inserting the customer failed");
                 }
             }
         }

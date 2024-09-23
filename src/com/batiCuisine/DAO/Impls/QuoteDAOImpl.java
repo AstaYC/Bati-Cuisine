@@ -20,11 +20,9 @@ public class QuoteDAOImpl implements QuoteDAO {
             preparedStatement.setDate(2, java.sql.Date.valueOf(quote.getIssueDate()));
             preparedStatement.setDate(3, java.sql.Date.valueOf(quote.getValidityDate()));
 
-            if(savedQuotesAnswer.equalsIgnoreCase("y")){
-                preparedStatement.setString(4, "true");
-            }else{
-                preparedStatement.setString(4, "false");
-            }
+
+            preparedStatement.setBoolean(4, savedQuotesAnswer.equalsIgnoreCase("y"));
+
 
             preparedStatement.setInt(5, quote.getProjectId());
             preparedStatement.executeUpdate();

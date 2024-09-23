@@ -15,20 +15,24 @@ public class LaborController {
         while(addLabor){
             System.out.println("--- Adding the Labors ---");
             System.out.println("Enter the Labor Name: ");
+
             String ComponentName = scanner.nextLine();
 
             // component insert
-            ComponentModel component = new ComponentModel(ComponentName);
+            ComponentModel component = new ComponentModel(ComponentName , projectId);
             // -----
 
             System.out.println("Enter the labor type (e.g., Basic Worker, Specialist)");
-            double LaborType = scanner.nextDouble();
+            String LaborType = scanner.nextLine();
             System.out.println("Enter the hourly rate of this labor (€/h)");
             double HourlyRate = scanner.nextDouble();
-            System.out.println("Enter the number of hours worked");
+            System.out.println("Enter the number of hours worked 'H'");
             double HourlyWorked = scanner.nextDouble();
+            System.out.println("Enter the material quality coefficient (1.0 = standard, > 1.0 = high quality)");
+            double MaterialQuality = scanner.nextDouble();
+            scanner.nextLine();
 
-            LaborModel labor  = new LaborModel(LaborType,HourlyRate,HourlyWorked);
+            LaborModel labor  = new LaborModel(HourlyRate,HourlyWorked,MaterialQuality);
             laborDAO.insertLabor(labor , component);
 
             System.out.println("Labor added successfully!");

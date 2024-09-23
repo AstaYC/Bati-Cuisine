@@ -13,12 +13,16 @@ public class ProjectDAOImpl implements ProjectDAO {
         String query = "INSERT INTO project (name, surfacearea , customer_id) VALUES (?, ? , ? )";
 
             try (Connection connection = DatabaseConnectionManager.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(query , Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, project.getName());
             preparedStatement.setDouble(2, project.getSurfacearea());
             preparedStatement.setInt(3, project.getCustomer_id());
-            preparedStatement.executeUpdate();
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new SQLException("Inserting the project failed, no rows affected.");
+            }
 
             try (ResultSet getNewInsertId = preparedStatement.getGeneratedKeys()){
                 if(getNewInsertId.next()){
@@ -51,9 +55,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 
 
     public ProjectModel getLastProject() throws SQLException {
-        String query = "SELECT *, customer.name AS customer_name FROM projects " +
-                "JOIN customer ON projects.customer_id = customer.id " +
-                "ORDER BY projects.id DESC " +
+        String query = "SELECT *, customer.name AS customer_name FROM project " +
+                "JOIN customer ON project.customer_id = customer.id " +
+                "ORDER BY project.id DESC " +
                 "LIMIT 1";
 
         ProjectModel project = null ;

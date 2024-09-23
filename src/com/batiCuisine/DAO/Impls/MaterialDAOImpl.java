@@ -5,10 +5,7 @@ import com.batiCuisine.Models.ComponentModel;
 import com.batiCuisine.Models.MaterialModel;
 import com.batiCuisine.Utils.DatabaseConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +16,7 @@ public class MaterialDAOImpl implements MaterialDAO {
         String Componentquery = "INSERT INTO component (name, componentType, projectId) VALUES (?, ?, ?)";
         int insertComponentID;
         try (Connection connection = DatabaseConnectionManager.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(Componentquery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(Componentquery , Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, component.getName());
             preparedStatement.setString(2, "Material");
@@ -34,7 +31,7 @@ public class MaterialDAOImpl implements MaterialDAO {
             }
         }
 
-        String Materialquery = "INSERT INTO Material (id, unitCost, quality, transportCost, qualityCoefficient) VALUES (?, ?, ?, ?, ?)";
+        String Materialquery = "INSERT INTO Material (id, unitCost, quantity, transportCost, qualityCoefficient) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseConnectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(Materialquery)) {
 

@@ -14,8 +14,13 @@ public class ComponentModel {
         this.projectId = projectId;
     }
 
-    public ComponentModel(String name) {
+    public ComponentModel( String name) {
         this.name = name;
+    }
+
+    public ComponentModel(String name ,  int projectId) {
+        this.name = name;
+        this.projectId = projectId;
     }
 
     public ComponentModel() {

@@ -5,35 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26a5cb1-f9c5-4f53-a56d-d47197766a6e" name="Changes" comment="">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ComponentDAOImpl.java" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/QuoteDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/QuoteDAO.java" afterDir="false" />
->>>>>>> e929c7e03ff89c5b6422570266481cb1b6634ac6
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/CalculCoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/CalculCoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/LaborController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/LaborController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/MaterialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/MaterialController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/SaveQuoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/SaveQuoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ComponentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ComponentDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/CustomerDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/LaborDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/LaborDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/MaterialDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/MaterialDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ComponentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ComponentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/LaborDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/LaborDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/MaterialDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/MaterialDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/ProjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/LaborModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/LaborModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/MaterialModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/ProjectModel.java" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/QuoteDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Interfaces/QuoteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/SaveQuoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Controllers/SaveQuoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/ProjectDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/QuoteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/QuoteModel.java" afterDir="false" />
->>>>>>> 81af84e (i finished the created project successfuly)
-=======
-      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/QuoteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/QuoteModel.java" afterDir="false" />
->>>>>>> e929c7e03ff89c5b6422570266481cb1b6634ac6
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/QuoteDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/QuoteDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/MainClass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/MainClass/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/batiCuisine/Models/ComponentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/batiCuisine/Models/ComponentModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +35,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{&quot;isMigrated&quot;: true}</component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
+        &quot;associatedIndex&quot;: 3
+        }</component>
   <component name="ProjectId" id="2mCvlNZtXqzFD08q8mdjqfNljaN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -69,7 +51,7 @@
     "Application.Main.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Youcode/Downloads/postgresql-42.7.4.jar",
     "node.js.detected.package.eslint": "true",
@@ -130,19 +112,40 @@
       <workItem from="1726652651913" duration="1591000" />
       <workItem from="1726725313209" duration="27162000" />
       <workItem from="1726822027079" duration="8243000" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <workItem from="1726844153801" duration="25658000" />
-=======
       <workItem from="1726844153801" duration="34372000" />
->>>>>>> 81af84e (i finished the created project successfuly)
-=======
-      <workItem from="1726844153801" duration="34372000" />
->>>>>>> e929c7e03ff89c5b6422570266481cb1b6634ac6
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
+          <option name="timeStamp" value="13" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/batiCuisine/DAO/Impls/QuoteDAOImpl.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/batiCuisine/Controllers/MaterialController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((PgResultSet)getNewInsertId).updateable" language="JAVA" custom="org.postgresql.jdbc.PgResultSet" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

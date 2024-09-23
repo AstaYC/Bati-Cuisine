@@ -15,10 +15,12 @@ public class SaveQuoteController {
 
     public void saveQuote(Scanner scanner) throws SQLException{
         System.out.println("--- Saving the Quote ---");
-        System.out.println("Enter the quote issue date (format: yyyy/mm/dd) :");
-        LocalDate issueDate = LocalDate.parse(scanner.nextLine());
-        System.out.println("Enter the quote validity date (format: dd/mm/yyyy):");
-        LocalDate validityDate = LocalDate.parse(scanner.nextLine());
+        System.out.println("Enter the quote issue date (format: yyyy-mm-dd) :");
+        String issueDateStr = scanner.nextLine();
+        LocalDate issueDate = LocalDate.parse(issueDateStr);
+        System.out.println("Enter the quote validity date (format: yyyy-mm-dd) :):");
+        String validityDateStr = scanner.nextLine();
+        LocalDate validityDate = LocalDate.parse(validityDateStr);
         System.out.println("Would you like to save the quote? (y/n)");
         String answer = scanner.nextLine();
 

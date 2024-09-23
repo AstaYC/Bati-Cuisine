@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class ComponentDAOImpl implements ComponentDAO {
     public void setVatComponent (int id , double vat ) throws SQLException {
-        String query = "UPDATE components SET vat = ? WHERE id = ?";
+        String query = "UPDATE component SET vatrate = ? WHERE projectid = ?";
         try (Connection conn = DatabaseConnectionManager.getConnection();
         PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setDouble(1, vat);

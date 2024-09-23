@@ -24,17 +24,25 @@ public class CalculCoutController {
 
        System.out.println("--- Total cost calculation ---");
        System.out.println("Do you want to apply VAT to the project? (y/n)");
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
        String answer = scanner.nextLine();
-       int getComponentID;
+       int getProjectID;
        double vat = 0.0;
        if (answer.equalsIgnoreCase("y")) {
            System.out.println("Enter the VAT percentage (%)");
             vat = scanner.nextDouble();
 
-            getComponentID = componentDAO.getTheLastComponentID();
-            componentDAO.setVatComponent(getComponentID , vat);
+           getProjectID = projectDAO.getLastProject().getId();
+            componentDAO.setVatComponent(getProjectID , vat);
        }
        System.out.println("Would you like to apply a profit margin to the project? (y/n):");
+
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
+
        String marginAnswer = scanner.nextLine();
         double profitMargin = 0.0;
        if (marginAnswer.equalsIgnoreCase("y")) {
@@ -43,71 +51,65 @@ public class CalculCoutController {
        }
 
         System.out.println("Calculation of the cost in progress...");
-        System.out.println("--- Calculation Result ---");
+        System.out.println();
+        System.out.println("+---------------------------------------------+");
+        System.out.println("|             Calculation Result              |");
+        System.out.println("+---------------------------------------------+");
+
         ProjectModel project = projectDAO.getLastProject();
 
+        System.out.println();
         System.out.println("+---------------------------------------------+");
         System.out.println("|               Project Details               |");
         System.out.println("+---------------------------------------------+");
-
-        System.out.printf("| %-15s : %-30s |\n", "Project Name", project.getName());
-        System.out.printf("| %-15s : %-30s |\n", "Client", project.getCustomer_name());
-        System.out.printf("| %-15s : %-30.2f m² |\n", "Surface", project.getSurfacearea());
-
+        System.out.printf("| %-20s : %-30s |\n", "Project Name", project.getName());
+        System.out.printf("| %-20s : %-30s |\n", "Client", project.getCustomer_name());
+        System.out.printf("| %-20s : %-29.2f m² |\n", "Surface Area", project.getSurfacearea());
         System.out.println("+---------------------------------------------+");
-        System.out.println("--- Cost Details ---");
-        System.out.println("1. Materials :");
 
+        System.out.println();
+        System.out.println("--- Cost Details ---");
+
+        System.out.println("1. Materials:");
         List<MaterialModel> materials = materialDAO.getAllMaterialForProject(project.getId());
-        double materialCost;
-        double totalMaterialCost = 0.0;
+        double materialCost, totalMaterialCost = 0.0;
         for (MaterialModel material : materials) {
             materialCost = (material.getQuantity() * material.getUnitCost()) * material.getQualityCoefficient() + material.getTransportCost();
-            System.out.printf("- %s : %.2f € (Quantity : %.2f m², UnitCost : %.2f €/m², Quality Coefficient : %.2f, Transport Cost : %.2f €)%n",
-                    material.getName(),
-                    materialCost,
-                    material.getQuantity(),
-                    material.getUnitCost(),
-                    material.getQualityCoefficient(),
-                    material.getTransportCost());
-
+            System.out.printf("   - %s: %.2f € (Quantity: %.2f m², Unit Cost: %.2f €/m², Quality Coefficient: %.2f, Transport Cost: %.2f €)%n",
+                    material.getName(), materialCost, material.getQuantity(), material.getUnitCost(),
+                    material.getQualityCoefficient(), material.getTransportCost());
             totalMaterialCost += materialCost;
         }
-        double totalMaterialCostVat = ((vat*totalMaterialCost)/100) + totalMaterialCost;
+        double totalMaterialCostVat = ((vat * totalMaterialCost) / 100) + totalMaterialCost;
+        System.out.printf("   ** Total cost of materials before VAT: %.2f €%n", totalMaterialCost);
+        System.out.printf("   ** Total cost of materials with VAT (%.2f%%): %.2f €%n", vat, totalMaterialCostVat);
 
-        System.out.printf("**Total cost of materials before VAT : %2f €%n" , totalMaterialCost);
-        System.out.printf("**Total cost of materials with VAT (%2f) : €%2f" , vat , totalMaterialCostVat);
-
-        System.out.println("2. Labors :");
+        System.out.println();
+        System.out.println("2. Labors:");
         List<LaborModel> labors = laborDAO.getAllLaborForProject(project.getId());
-
-        double laborCost;
-        double totalLaborCost = 0.0;
+        double laborCost, totalLaborCost = 0.0;
         for (LaborModel labor : labors) {
             laborCost = (labor.getHourlyRate() * labor.getHoursWorked()) * labor.getWorkerProductivity();
-            System.out.printf("- %s : %.2f € (Hourly Rate : %.2f m², Hours Worked : %.2f €/m², Worker Productivity : %.2f H)%n",
-                    labor.getName(),
-                    laborCost,
-                    labor.getHourlyRate(),
-                    labor.getHoursWorked(),
+            System.out.printf("   - %s: %.2f € (Hourly Rate: %.2f €/h, Hours Worked: %.2f h, Productivity Factor: %.2f)%n",
+                    labor.getName(), laborCost, labor.getHourlyRate(), labor.getHoursWorked(),
                     labor.getWorkerProductivity());
-
             totalLaborCost += laborCost;
         }
+        double totalLaborCostVat = ((vat * totalLaborCost) / 100) + totalLaborCost;
+        System.out.printf("   ** Total cost of labors before VAT: %.2f €%n", totalLaborCost);
+        System.out.printf("   ** Total cost of labors with VAT (%.2f%%): %.2f €%n", vat, totalLaborCostVat);
 
-        double totalLaborCostVat = ((vat*totalLaborCost)/100) + totalLaborCost;
+        double marginCost = totalMaterialCostVat + totalLaborCostVat;
+        double marginProfit = (marginCost * profitMargin) / 100;
+        double totalProjectCost = marginCost + marginProfit;
 
-        System.out.printf("**Total cost of Labors before VAT : %2f €%n" , totalLaborCost);
-        System.out.printf("**Total cost of Labors with VAT (%2f) : €%2f" , vat , totalLaborCostVat);
+        System.out.println();
+        System.out.println("3. Final Cost Summary:");
+        System.out.printf("   ** Total cost before margin: %.2f €%n", marginCost);
+        System.out.printf("   ** Profit margin (%.2f%%): %.2f €%n", profitMargin, marginProfit);
+        System.out.printf("   ** Final total project cost: %.2f €%n", totalProjectCost);
 
-        double marginCost = totalMaterialCostVat + totalLaborCostVat ;
-        double marginCostProfit = ((marginCost * profitMargin) / 100 ) + marginCost;
-
-        System.out.printf("3. Total Front Margin Cost : %.2f€%n" , marginCost);
-        System.out.printf("4. Profit margin (%.2f) : %.2f€%n" , profitMargin , (marginCost * profitMargin) / 100);
-        System.out.printf("**Final total project cost : %.2f€%n" , marginCostProfit);
-
-        projectDAO.setCostMarginProject(project.getId() , profitMargin , marginCostProfit);
+        projectDAO.setCostMarginProject(project.getId(), profitMargin, totalProjectCost);
 
     }
 }

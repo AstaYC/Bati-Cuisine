@@ -15,22 +15,25 @@ public class MaterialController {
         while (addMoreMaterial) {
             System.out.println("--- Adding the Material ---");
             System.out.println("Enter the Material Name: ");
+            if (scanner.hasNextLine()) {
+                scanner.nextLine(); // This clears the newline character after an earlier input
+            }
             String ComponentName = scanner.nextLine();
 
             // component insert
-            ComponentModel component = new ComponentModel(ComponentName);
+            ComponentModel component = new ComponentModel(ComponentName , projectId);
 
             // ----- //
 
             System.out.println("Enter the quantity of this material (in m²))");
             double Quantity = scanner.nextDouble();
-            System.out.println("Enter the unit cost of this material(€/m²)");
+            System.out.println("Enter the unit cost of this material (€/m²)");
             double UnitCost = scanner.nextDouble();
             System.out.println("Enter the cost of transporting this material (€)");
             double Cost = scanner.nextDouble();
             System.out.println("Enter the material quality coefficient (1.0 = standard, > 1.0 = high quality)");
             double Quality = scanner.nextDouble();
-
+            scanner.nextLine();
 
             MaterialModel material = new MaterialModel(UnitCost , Quantity ,  Cost , Quality);
             materialDAO.insertMaterial(material , component);

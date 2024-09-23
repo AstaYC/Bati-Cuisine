@@ -5,10 +5,7 @@ import com.batiCuisine.Models.ComponentModel;
 import com.batiCuisine.Models.LaborModel;
 import com.batiCuisine.Utils.DatabaseConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,7 @@ public class LaborDAOImpl implements LaborDAO {
         String Componentquery = "INSERT INTO component (name, componentType, projectId) VALUES (?, ?, ?)";
         int insertComponentID;
         try (Connection connection = DatabaseConnectionManager.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(Componentquery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(Componentquery , Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, component.getName());
             preparedStatement.setString(2, "Labor");
@@ -46,10 +43,11 @@ public class LaborDAOImpl implements LaborDAO {
     }
 
     public List<LaborModel> getAllLaborForProject(int projectId) throws SQLException {
-        String query = "SELECT * , component.name as name FROM labor " +
-                "inner join component on labor.id = component.id " +
-                "where component.projectId = ? " +
-                "and where component.componenttype = 'Labor' ";
+        String query = "SELECT *, component.name as name FROM labor " +
+                "INNER JOIN component ON labor.id = component.id " +
+                "WHERE component.projectid = ? " +
+                "AND component.componenttype = 'Labor';";
+
 
         List<LaborModel> labors = new ArrayList<>();
         try(Connection connection = DatabaseConnectionManager.getConnection();
