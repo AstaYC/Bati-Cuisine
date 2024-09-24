@@ -94,3 +94,13 @@ CREATE TABLE labor (
     worker_productivity DOUBLE PRECISION NOT NULL DEFAULT 1.0,
     FOREIGN KEY (id) REFERENCES component(id) ON DELETE CASCADE
 );
+
+
+
+The stages of carrying out the project:
+
+1. Requirements Analysis: Identified the need for a cost management system for construction projects, focusing on materials, labor, and project details.
+2. Database Design: Designed the PostgreSQL schema with key tables for projects, customers, materials, labor, and a component table to link materials and labor to each project using foreign keys.
+3. Backend Development: Implemented the business logic in Java, using JDBC to connect to the PostgreSQL database. Applied DAO pattern to handle database operations.
+4. Cost Calculation: Developed methods to calculate the total project cost, including material and labor costs, VAT, and profit margins.
+5. Testing and Refinement: Tested the system thoroughly to ensure accurate calculations and database integrity, refining the project based on feedback.
