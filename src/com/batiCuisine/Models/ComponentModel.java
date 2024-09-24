@@ -13,6 +13,13 @@ public class ComponentModel {
         this.componentType = componentType;
         this.projectId = projectId;
     }
+    public ComponentModel(int id, String name, double taxRate,  String componentType, int projectId) {
+        this.id = id;
+        this.taxRate = taxRate;
+        this.name = name;
+        this.componentType = componentType;
+        this.projectId = projectId;
+    }
 
     public ComponentModel( String name) {
         this.name = name;

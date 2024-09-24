@@ -15,9 +15,7 @@ public class MaterialController {
         while (addMoreMaterial) {
             System.out.println("--- Adding the Material ---");
             System.out.println("Enter the Material Name: ");
-            if (scanner.hasNextLine()) {
-                scanner.nextLine(); // This clears the newline character after an earlier input
-            }
+
             String ComponentName = scanner.nextLine();
 
             // component insert
@@ -46,7 +44,6 @@ public class MaterialController {
                 addMoreMaterial = false;
             }
         }
-
 
     }
 }

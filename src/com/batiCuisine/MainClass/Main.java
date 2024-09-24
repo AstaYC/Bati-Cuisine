@@ -27,8 +27,10 @@ public class Main {
                     projectController.createProject(scanner);
                     break;
                 case 2:
+                    projectController.displayProjects(scanner);
                     break;
                 case 3:
+                    projectController.CalculateProject(scanner);
                     break;
                 case 4:
                     System.out.println("Bye!");

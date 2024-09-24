@@ -6,6 +6,8 @@ import com.batiCuisine.Utils.DatabaseConnectionManager;
 
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectDAOImpl implements ProjectDAO {
     @Override
@@ -91,4 +93,59 @@ public class ProjectDAOImpl implements ProjectDAO {
             preparedStatement.executeUpdate();
         }
     }
+
+    public List<ProjectModel> getAllProjects() throws SQLException {
+        String query = "SELECT * , customer.name as customer_name  FROM project " +
+                "Inner JOIN customer " +
+                "ON customer.id = project.customer_id ";
+        ProjectModel project = null;
+        List<ProjectModel> projects = new ArrayList<>();
+
+        try(Connection connection = DatabaseConnectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                project = new ProjectModel(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getDouble("surfacearea"),
+                    resultSet.getDouble("profitmerge"),
+                    resultSet.getDouble("totalcost"),
+                    resultSet.getString("projectstatus"),
+                    resultSet.getInt("customer_id")
+                );
+                    project.setCustomer_name(resultSet.getString("customer_name"));
+                    projects.add(project);
+            }
+
+        }
+        return projects;
+    }
+
+    public ProjectModel getProjectById(int id) throws SQLException {
+       String query = "Select * , customer.name as customer_name from project " +
+               "inner join customer " +
+               "on customer.id = project.customer_id " +
+               " where project.id = ? ";
+       ProjectModel project = null;
+       try(Connection connection = DatabaseConnectionManager.getConnection();
+       PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+           preparedStatement.setInt(1, id);
+           ResultSet resultSet = preparedStatement.executeQuery();
+           if (resultSet.next()) {
+               project = new ProjectModel(
+                       resultSet.getInt("id"),
+                       resultSet.getString("name"),
+                       resultSet.getDouble("surfacearea"),
+                       resultSet.getDouble("profitmerge"),
+                       resultSet.getDouble("totalcost"),
+                       resultSet.getString("projectstatus"),
+                       resultSet.getInt("customer_id")
+               );
+               project.setCustomer_name(resultSet.getString("customer_name"));
+           }
+       }
+       return project;
+    }
+
 }

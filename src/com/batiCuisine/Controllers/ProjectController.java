@@ -9,6 +9,7 @@ import com.batiCuisine.Models.CustomerModel;
 import com.batiCuisine.Models.ProjectModel;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProjectController {
@@ -21,6 +22,7 @@ public class ProjectController {
     private final LaborController laborController = new LaborController();
     private final CalculCoutController calculCoutController = new CalculCoutController();
     private final SaveQuoteController saveQuoteController = new SaveQuoteController();
+    private final CalculateProjectContoller calculateProjectContoller = new CalculateProjectContoller();
 
     public void createProject(Scanner scanner) throws SQLException {
         boolean contunueCustomer = true ;
@@ -75,6 +77,7 @@ public class ProjectController {
         String projectName = scanner.nextLine();
         System.out.println("Enter the kitchen surface area (with m²)" );
         double kitchenSurfaceArea = scanner.nextDouble();
+        scanner.nextLine();
 
         if (CustomerId == -1){
             System.out.println("Customer ID not found!");
@@ -101,6 +104,92 @@ public class ProjectController {
         // ---------------------------- //
 
         System.out.println("--- End of project ---");
+
+    }
+
+    public void displayProjects (Scanner scanner) throws SQLException {
+        System.out.println("--- Search a Project ---");
+        System.out.println("1. Display All Projects");
+        System.out.println("2. Choose a project to display");
+        int choise = scanner.nextInt();
+        scanner.nextLine();
+
+        if (choise == 1) {
+           List<ProjectModel> projects = projectDAO.getAllProjects();
+            System.out.println("+---------------------------------------------------------------------------------------------------+");
+            System.out.printf("| %-5s | %-20s | %-15s | %-12s | %-12s | %-15s | %-15s |\n",
+                    "ID", "Project Name", "Customer Name", "Surface Area", "Profit Merge", "Total Cost", "Status");
+            System.out.println("+---------------------------------------------------------------------------------------------------+");
+
+            // Loop through and display each project
+            for (ProjectModel project : projects) {
+                System.out.printf("| %-5d | %-20s | %-15s | %-12.2f | %-12.2f | %-15.2f | %-15s |\n",
+                        project.getId(),
+                        project.getName(),
+                        project.getCustomer_name(),
+                        project.getSurfacearea(),
+                        project.getProfitmerge(),
+                        project.getTotalcost(),
+                        project.getProjectstatus());
+            }
+
+            // Closing the table
+            System.out.println("+---------------------------------------------------------------------------------------------------+");
+        } else if (choise == 2) {
+            List<ProjectModel> projects = projectDAO.getAllProjects();
+
+            System.out.println("+---------------------------+");
+            System.out.printf("| %-5s | %-20s |\n", "ID", "Project Name");
+            System.out.println("+---------------------------+");
+
+            for (ProjectModel project : projects) {
+                System.out.printf("| %-5d | %-20s |\n", project.getId(), project.getName());
+            }
+
+            System.out.println("+---------------------------+");
+
+            System.out.print("Enter the ID of the project you want to display: ");
+            int selectedProjectId = scanner.nextInt();
+            scanner.nextLine();
+
+            ProjectModel project = projectDAO.getProjectById(selectedProjectId);
+            if (project != null) {
+                System.out.println("+---------------------------------------------------+");
+                System.out.println("|                   Project Details                 |");
+                System.out.println("+---------------------------------------------------+");
+                System.out.printf("| %-20s : %-30s |\n", "Project Name", project.getName());
+                System.out.printf("| %-20s : %-30s |\n", "Customer Name", project.getCustomer_name());
+                System.out.printf("| %-20s : %-30.2f m² |\n", "Surface Area", project.getSurfacearea());
+                System.out.printf("| %-20s : %-30.2f € |\n", "Profit Merge", project.getProfitmerge());
+                System.out.printf("| %-20s : %-30.2f € |\n", "Total Cost", project.getTotalcost());
+                System.out.printf("| %-20s : %-30s |\n", "Project Status", project.getProjectstatus());
+                System.out.println("+---------------------------------------------------+");
+            } else {
+                System.out.println("Project not found.");
+            }
+        }
+
+    }
+
+    public void CalculateProject(Scanner scanner) throws SQLException {
+        List<ProjectModel> projects = projectDAO.getAllProjects();
+
+        System.out.println("+---------------------------+");
+        System.out.printf("| %-5s | %-20s |\n", "ID", "Project Name");
+        System.out.println("+---------------------------+");
+
+        for (ProjectModel project : projects) {
+            System.out.printf("| %-5d | %-20s |\n", project.getId(), project.getName());
+        }
+
+        System.out.println("+---------------------------+");
+        System.out.println("+---------------------------+\n");
+
+        System.out.print("Enter the ID of the project you want to Calculate: ");
+        int selectedProjectId = scanner.nextInt();
+        scanner.nextLine();
+
+        calculateProjectContoller.calculateProject(scanner , selectedProjectId);
 
     }
 }

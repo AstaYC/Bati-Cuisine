@@ -1,6 +1,7 @@
 package com.batiCuisine.DAO.Impls;
 
 import com.batiCuisine.DAO.Interfaces.ComponentDAO;
+import com.batiCuisine.Models.ComponentModel;
 import com.batiCuisine.Utils.DatabaseConnectionManager;
 
 import java.sql.Connection;
@@ -36,8 +37,28 @@ public class ComponentDAOImpl implements ComponentDAO {
             if (resultSet.next()) {
                 return resultSet.getInt("id");
             }
-
         }
         return -1 ;
+    }
+
+    public ComponentModel getComponentById(int id) throws SQLException {
+        String query = "SELECT * FROM component WHERE projectid = ?";
+        ComponentModel component = null ;
+        try (Connection connection = DatabaseConnectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                component = new ComponentModel(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getDouble("vatrate"),
+                        resultSet.getString("componenttype"),
+                        resultSet.getInt("projectid")
+                );
+
+            }
+        }
+        return component;
     }
 }
